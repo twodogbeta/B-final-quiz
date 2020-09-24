@@ -1,7 +1,9 @@
 package com.example.demo.utils;
 
 import com.example.demo.domain.Trainee;
+import com.example.demo.domain.Trainer;
 import com.example.demo.dto.TraineeDto;
+import com.example.demo.dto.TrainerDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -25,5 +27,16 @@ public class Converter {
                 .build();
     }
 
+    public static Trainer trainerDto2trainer(TrainerDto trainerDto) {
+        return Trainer.builder()
+                .name(trainerDto.getName())
+                .grouped(false)
+                .build();
+    }
 
+    public static TrainerDto trainer2trainerDto(Trainer trainer) {
+        return TrainerDto.builder()
+                .name(trainer.getName())
+                .build();
+    }
 }

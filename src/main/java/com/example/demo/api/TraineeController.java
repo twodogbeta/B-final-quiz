@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/trainees")
 public class TraineeController {
     private TraineeService traineeService;
 
@@ -17,20 +18,20 @@ public class TraineeController {
         this.traineeService = traineeService;
     }
 
-    @GetMapping("/trainees")
+    @GetMapping("")
     public List<TraineeDto> getAllUnGroupedTrainees(@RequestParam(defaultValue = "false") Boolean grouped) {
         return traineeService.getAllUnGroupedTrainees(grouped);
     }
 
-    @PostMapping("/trainees")
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     public void addOneTrainee(@RequestBody @Valid TraineeDto traineeDto) {
         traineeService.addOneTrainee(traineeDto);
     }
 
-    @DeleteMapping("/trainees/{trainee_id}")
+    @DeleteMapping("/{traineeId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteOneTrainee(@PathVariable Long trainee_id) {
-        traineeService.deleteOneTrainee(trainee_id);
+    public void deleteOneTrainee(@PathVariable Long traineeId) {
+        traineeService.deleteOneTrainee(traineeId);
     }
 }
