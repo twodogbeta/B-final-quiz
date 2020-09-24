@@ -2,6 +2,7 @@ package com.example.demo.api;
 
 import com.example.demo.dto.TraineeDto;
 import com.example.demo.service.TraineeService;
+import com.example.demo.vo.TraineeVo;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class TraineeController {
     }
 
     @GetMapping("")
-    public List<TraineeDto> getAllUnGroupedTrainees(@RequestParam(defaultValue = "false") Boolean grouped) {
+    public List<TraineeVo> getAllUnGroupedTrainees(@RequestParam(defaultValue = "false") Boolean grouped) {
         return traineeService.getAllUnGroupedTrainees(grouped);
     }
 

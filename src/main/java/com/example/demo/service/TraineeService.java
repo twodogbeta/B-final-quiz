@@ -6,6 +6,7 @@ import com.example.demo.exception.ParameterNotFoundException;
 import com.example.demo.exception.CommonError;
 import com.example.demo.repository.TraineeRepository;
 import com.example.demo.utils.Converter;
+import com.example.demo.vo.TraineeVo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,11 +21,11 @@ public class TraineeService {
         this.traineeRepository = traineeRepository;
     }
 
-    public List<TraineeDto> getAllUnGroupedTrainees(boolean grouped) {
+    public List<TraineeVo> getAllUnGroupedTrainees(boolean grouped) {
         List<Trainee> traineeList = traineeRepository.findTraineesByGrouped(grouped);
 
 
-        return traineeList.stream().map(Converter::trainee2traineeDto).collect(Collectors.toList());
+        return traineeList.stream().map(Converter::trainee2traineeVo).collect(Collectors.toList());
     }
 
     public void addOneTrainee(TraineeDto traineeDto) {
