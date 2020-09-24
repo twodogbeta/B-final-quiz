@@ -19,20 +19,20 @@ public class TrainerController {
     }
 
     @GetMapping("")
-    public List<TrainerDto> getTrainer(@RequestParam(defaultValue = "false") Boolean grouped) {
+    public List<TrainerDto> getAllUnGroupedTrainers(@RequestParam(defaultValue = "true") Boolean grouped) {
         return trainerService.getAllUnGroupedTrainers(grouped);
     }
 
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createTrainer(@RequestBody @Valid TrainerDto trainerDto) {
+    public void addOneTrainer(@RequestBody @Valid TrainerDto trainerDto) {
         trainerService.addOneTrainer(trainerDto);
     }
 
     @DeleteMapping("/{trainerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteTrainer(@PathVariable Long trainerId) {
+    public void deleteOneTrainer(@PathVariable Long trainerId) {
         trainerService.deleteOneTrainer(trainerId);
     }
 }
