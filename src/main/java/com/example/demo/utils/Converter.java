@@ -1,5 +1,6 @@
 package com.example.demo.utils;
 
+import com.example.demo.domain.Group;
 import com.example.demo.domain.Trainee;
 import com.example.demo.domain.Trainer;
 import com.example.demo.dto.TraineeDto;
@@ -7,12 +8,14 @@ import com.example.demo.dto.TrainerDto;
 import com.example.demo.vo.TraineeVo;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class Converter {
     public static Trainee traineeDto2trainee(TraineeDto traineeDto) {
         return Trainee.builder()
                 .name(traineeDto.getName())
                 .email(traineeDto.getEmail())
+                .github(traineeDto.getGithub())
                 .office(traineeDto.getOffice())
                 .zoomId(traineeDto.getZoomId())
                 .grouped(false)
@@ -23,6 +26,7 @@ public class Converter {
         return TraineeDto.builder()
                 .name(trainee.getName())
                 .email(trainee.getEmail())
+                .github(trainee.getGithub())
                 .office(trainee.getOffice())
                 .zoomId(trainee.getZoomId())
                 .build();
@@ -33,6 +37,7 @@ public class Converter {
                 .id(trainee.getId())
                 .name(trainee.getName())
                 .email(trainee.getEmail())
+                .github(trainee.getGithub())
                 .office(trainee.getOffice())
                 .zoomId(trainee.getZoomId())
                 .build();
@@ -50,4 +55,6 @@ public class Converter {
                 .name(trainer.getName())
                 .build();
     }
+
+
 }

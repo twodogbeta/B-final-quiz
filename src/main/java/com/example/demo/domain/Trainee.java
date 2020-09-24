@@ -24,5 +24,6 @@ public class Trainee {
     private String office;
     private String email;
     private String zoomId;
+    private String github;
     private Boolean grouped;
 }

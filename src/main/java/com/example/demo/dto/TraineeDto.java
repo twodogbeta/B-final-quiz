@@ -20,6 +20,8 @@ public class TraineeDto {
     @NotNull(message = "email can not be null!")
     @Email(message = "email is not in a correct format!")
     private String email;
+    @NotNull(message = "github account number can not be null!")
+    private String github;
     @NotNull(message = "zoomId can not be null!")
     private String zoomId;
 }
